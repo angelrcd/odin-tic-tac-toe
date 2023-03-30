@@ -103,7 +103,7 @@ const Board = (function () {
     clear,
     addMove,
     logBoard,
-    getCurrentPlayerAndSetTheNext: getCurrentPlayer,
+    getCurrentPlayer,
   };
 })();
 
@@ -122,9 +122,26 @@ const displayController = (() => {
   _cells.forEach((cell) => {
     cell.addEventListener("click", () => {
       const indexClicked = cell.getAttribute("data-index");
-      const currentPlayer = Board.getCurrentPlayerAndSetTheNext();
+      const currentPlayer = Board.getCurrentPlayer();
       currentPlayer.makeMove(indexClicked);
       Board.logBoard();
+    });
+  });
+
+  _cells.forEach((cell) => {
+    cell.addEventListener("mouseover", () => {
+      const hoverclass =
+        Board.getCurrentPlayer() === xPlayer ? "xPlayer" : "oPlayer";
+      if (!cell.getAttribute("data-mark")) {
+        cell.classList.toggle(hoverclass);
+      }
+    });
+    cell.addEventListener("mouseout", () => {
+      const hoverclass =
+        Board.getCurrentPlayer() === xPlayer ? "xPlayer" : "oPlayer";
+      if (!cell.getAttribute("data-mark")) {
+        cell.classList.toggle(hoverclass);
+      }
     });
   });
 
@@ -142,7 +159,10 @@ const displayController = (() => {
   };
 
   const clearDisplay = () => {
-    _cells.forEach((cell) => cell.setAttribute("data-mark", ""));
+    _cells.forEach((cell) => {
+      cell.setAttribute("data-mark", "");
+      cell.classList.remove("xPlayer", "oPlayer");
+    });
   };
   return {
     drawMarkInCell,

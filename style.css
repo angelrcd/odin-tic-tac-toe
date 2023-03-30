@@ -30,8 +30,8 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #board-container {
-  width: clamp(300px, 50vw, 700px);
-  margin: 0 auto;
+  width: clamp(200px, 50vw, 700px);
+  margin: 30px auto;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -43,12 +43,38 @@ p, h1, h2, h3, h4, h5, h6 {
   border: 1px solid black;
 }
 
+#board-container div:nth-child(1),
+#board-container div:nth-child(2),
+#board-container div:nth-child(3) {
+  border-top: none;
+}
+
+#board-container div:nth-child(7),
+#board-container div:nth-child(8),
+#board-container div:nth-child(9) {
+  border-bottom: none;
+}
+
+#board-container div:nth-child(1),
+#board-container div:nth-child(4),
+#board-container div:nth-child(7) {
+  border-left: none;
+}
+
+#board-container div:nth-child(3),
+#board-container div:nth-child(6),
+#board-container div:nth-child(9) {
+  border-right: none;
+}
+
 #board-container div[data-mark="X"] {
-  background: red;
+  background: url(cross.svg);
+  opacity: 1;
 }
 
 #board-container div[data-mark="O"] {
-  background: blue;
+  background: url(circle.svg);
+  opacity: 1;
 }
 
 .hidden {
@@ -62,4 +88,14 @@ p, h1, h2, h3, h4, h5, h6 {
   background: #0005;
   width: 100vw;
   height: 100vh;
+}
+
+.xPlayer {
+  background: url(cross.svg);
+  opacity: 0.1;
+}
+
+.oPlayer {
+  background: url(circle.svg);
+  opacity: 0.1;
 }
