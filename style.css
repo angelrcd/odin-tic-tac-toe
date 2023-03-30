@@ -42,3 +42,24 @@ p, h1, h2, h3, h4, h5, h6 {
   border-collapse: collapse;
   border: 1px solid black;
 }
+
+#board-container div[data-mark="X"] {
+  background: red;
+}
+
+#board-container div[data-mark="O"] {
+  background: blue;
+}
+
+.hidden {
+  display: none;
+}
+
+#win-screen {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  background: #0005;
+  width: 100vw;
+  height: 100vh;
+}
