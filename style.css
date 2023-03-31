@@ -76,12 +76,12 @@ body > p {
 }
 
 #board-container div[data-mark="X"] {
-  background: url(cross.svg);
+  background: url(/img/cross.svg);
   opacity: 1;
 }
 
 #board-container div[data-mark="O"] {
-  background: url(circle.svg);
+  background: url(/img/circle.svg);
   opacity: 1;
 }
 
@@ -112,11 +112,11 @@ body > p {
 }
 
 .xPlayer {
-  background: url(cross.svg);
+  background: url(/img/cross.svg);
   opacity: 0.1;
 }
 
 .oPlayer {
-  background: url(circle.svg);
+  background: url(/img/circle.svg);
   opacity: 0.1;
 }
