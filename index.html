@@ -9,6 +9,7 @@
     <script type="module" src="/main.js"></script>
   </head>
   <body>
+    <p>PLAYER: <span class="current-player"></span></p>
     <div id="board-container">
       <div data-index="0"><span></span></div>
       <div data-index="1"></div>
@@ -21,8 +22,10 @@
       <div data-index="8"></div>
     </div>
     <div id="win-screen" class="hidden">
-      <span class="winner"></span> WINS
-      <button>RESTART</button>
+      <div class="win-msg-container">
+        <span class="winner"></span> WINS
+        <div><button>RESTART</button></div>
+      </div>
     </div>
   </body>
 </html>

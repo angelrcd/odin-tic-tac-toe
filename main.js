@@ -22,8 +22,10 @@ const Board = (function () {
   const _togglePlayer = () => {
     if (_currentPlayer === xPlayer) {
       _currentPlayer = oPlayer;
+      displayController.displayCurrentPlayer("O");
     } else {
       _currentPlayer = xPlayer;
+      displayController.displayCurrentPlayer("X");
     }
   };
 
@@ -112,11 +114,13 @@ const displayController = (() => {
   const winnerDisplay = document.querySelector(".winner");
   const winScreen = document.querySelector("#win-screen");
   const _cells = document.querySelectorAll("#board-container div");
+  const currentPlayerDisplay = document.querySelector(".current-player");
 
   restartButton.addEventListener("click", () => {
     Board.clear();
     displayController.clearDisplay();
     displayController.hideWinScreen();
+    displayController.displayCurrentPlayer("X");
   });
 
   _cells.forEach((cell) => {
@@ -164,10 +168,18 @@ const displayController = (() => {
       cell.classList.remove("xPlayer", "oPlayer");
     });
   };
+
+  const displayCurrentPlayer = (player) => {
+    currentPlayerDisplay.textContent = player;
+  };
+
   return {
     drawMarkInCell,
     displayWinScreen,
     hideWinScreen,
     clearDisplay,
+    displayCurrentPlayer,
   };
 })();
+
+displayController.displayCurrentPlayer("X"); // Display first player at first load

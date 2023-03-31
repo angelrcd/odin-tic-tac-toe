@@ -14,6 +14,7 @@ html, body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: #e2e8f0;
 }
 img, picture, video, canvas, svg {
   display: block;
@@ -27,6 +28,13 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #root, #__next {
   isolation: isolate;
+}
+
+body > p {
+  width: fit-content;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 auto;
 }
 
 #board-container {
@@ -77,17 +85,30 @@ p, h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-.hidden {
-  display: none;
-}
+
 
 #win-screen {
   position: fixed;
   top: 0;
   z-index: 5;
-  background: #0005;
+  background: #000a;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.win-msg-container {
+  width: 100%;
+  background: white;
+  padding: 2rem;
+}
+
+#win-screen.hidden {
+  display: none;
 }
 
 .xPlayer {
